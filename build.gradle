@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+
+task getHomeDir {
+    doLast {
+        println gradle.gradleHomeDir
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+
+dependencies {
+    compile('org.testng:testng:6.9.10')
+    compile('org.seleniumhq.selenium:selenium-java:2.48.2')
+}
+
+
