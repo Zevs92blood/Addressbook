@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class AdGroupTest {
-  ChromeDriver driver;
-
+  ChromeDriver driver; // Для линуха ставим sudo apt-get install chromium-chromedriver
+// для винды Windows users with Chocolatey installed: choco install chromedriver
 
   @BeforeMethod
   public void setUp() throws Exception {
