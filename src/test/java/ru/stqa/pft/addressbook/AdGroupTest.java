@@ -1,28 +1,27 @@
 package ru.stqa.pft.addressbook;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
-import org.openqa.selenium.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class AdGroupTest {
-  private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
+  FirefoxDriver driver;
 
-  @BeforeClass(alwaysRun = true)
-  public void setUp() throws Exception {
+
+  @BeforeMethod
+  public void setUp() throws Exception{
     driver = new FirefoxDriver();
-    baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testUntitledTestCase() throws Exception {
+  public void adGroup() {
     driver.get("http://192.168.56.101/addressbook/index.php");
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).clear();
@@ -46,45 +45,20 @@ public class AdGroupTest {
     driver.findElement(By.linkText("group page")).click();
   }
 
-  @AfterClass(alwaysRun = true)
-  public void tearDown() throws Exception {
+  @AfterClass
+  public void tearDown() {
     driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
   }
 
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
+  public static boolean isAlertPresent(FirefoxDriver driver){
+    try{
       driver.switchTo().alert();
       return true;
     } catch (NoAlertPresentException e) {
       return false;
+
     }
+    }
+
   }
 
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
-}
