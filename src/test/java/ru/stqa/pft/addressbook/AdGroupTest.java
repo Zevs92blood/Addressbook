@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook;
 
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,14 +9,24 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.io.*;
+
 
 public class AdGroupTest {
   ChromeDriver driver; // Для линуха ставим sudo apt-get install chromium-chromedriver
-// для винды Windows users with Chocolatey installed: choco install chromedriver
+// для винды Windows users with Chocolatey installed: choco install chromedriver. Потом не понимаем, что этой винде ещё надо, психуем и укладываем драйверы в ресурсы. (./src/test/resources/)
 
   @BeforeMethod
   public void setUp() throws Exception {
+    File file = new File("./src/test/resources/config.properties"); //завод файла
+    Properties properties = new Properties(); // Переменная для пропертей
+    properties.load(new FileReader(file)); // приколачиваем переменную для пропертей к файлу
+    // equals - Сравнение для строк
+    if (properties.getProperty("useLinux").equals("false")) System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe"); //обращение для винды.
+    else System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver"); //обращение для линуха
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     driver.get("http://192.168.56.101/addressbook/index.php");
