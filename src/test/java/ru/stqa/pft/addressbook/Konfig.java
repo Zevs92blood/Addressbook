@@ -11,6 +11,8 @@ public class Konfig {
 
 
     public String useLinux;
+    public String userL;
+    public String userP;
 
 
 
@@ -20,7 +22,13 @@ public class Konfig {
         Properties properties = new Properties(); // Переменная для пропертей
         properties.load(new FileReader(file));
         String useLinux = properties.getProperty("useLinux");
+        String userL = properties.getProperty("userL");
+        String userP = properties.getProperty("userP");
         this.useLinux = useLinux;
+        this.userL = userL;
+        this.userP = userP;
+
+
 
 
     }
