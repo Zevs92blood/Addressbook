@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-import java.util.Properties;
+
 import java.util.concurrent.TimeUnit;
-import java.io.*;
+
 
 
 public class AdGroupTest {
@@ -21,11 +21,9 @@ public class AdGroupTest {
 
   @BeforeMethod
   public void setUp() throws Exception {
-    File file = new File("./src/test/resources/config.properties"); //завод файла
-    Properties properties = new Properties(); // Переменная для пропертей
-    properties.load(new FileReader(file)); // приколачиваем переменную для пропертей к файлу
-    // equals - Сравнение для строк
-    if (properties.getProperty("useLinux").equals("false")) System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe"); //обращение для винды.
+    Konfig konf = new Konfig();
+// equals - сравнение для строк.
+    if (konf.useLinux.equals("false")) System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe"); //обращение для винды.
     else System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver"); //обращение для линуха
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
