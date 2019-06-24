@@ -9,10 +9,15 @@ import java.util.Properties;
 public class Konfig {
 
 
-
+    //для ОС
     public String useLinux;
+    //для логина
     public String userL;
     public String userP;
+    //для теста групп
+    public String groupName;
+    public String groupHeader;
+    public String groupFooter;
 
 
 
@@ -24,9 +29,15 @@ public class Konfig {
         String useLinux = properties.getProperty("useLinux");
         String userL = properties.getProperty("userL");
         String userP = properties.getProperty("userP");
+        String groupName = properties.getProperty("groupName");
+        String groupHeader = properties.getProperty("groupHeader");
+        String groupFooter = properties.getProperty("groupFooter");
         this.useLinux = useLinux;
         this.userL = userL;
         this.userP = userP;
+        this.groupName = groupName;
+        this.groupHeader = groupHeader;
+        this.groupFooter = groupFooter;
 
 
 
