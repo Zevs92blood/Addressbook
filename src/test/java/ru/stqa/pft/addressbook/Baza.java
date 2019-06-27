@@ -75,4 +75,9 @@ public class Baza {
     public void tearDown() {
       driver.quit();
     }
+
+    protected void deleteGroup() {
+        driver.findElement(By.name("selected[]")).click();
+        driver.findElement(By.name("delete")).click();
+    }
 }
