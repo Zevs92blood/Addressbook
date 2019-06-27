@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 
@@ -79,5 +80,34 @@ public class Baza {
     protected void deleteGroup() {
         driver.findElement(By.name("selected[]")).click();
         driver.findElement(By.name("delete")).click();
+    }
+
+    protected void createUser() {
+      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
+    }
+
+    protected void writeUserData() {
+      driver.findElement(By.name("firstname")).click();
+      driver.findElement(By.name("firstname")).clear();
+      driver.findElement(By.name("firstname")).sendKeys("First name");
+      driver.findElement(By.name("middlename")).click();
+      driver.findElement(By.name("middlename")).clear();
+      driver.findElement(By.name("middlename")).sendKeys("middle name");
+      driver.findElement(By.name("lastname")).click();
+      driver.findElement(By.name("lastname")).clear();
+      driver.findElement(By.name("lastname")).sendKeys("last name");
+      driver.findElement(By.name("bday")).click();
+      new Select(driver.findElement(By.name("bday"))).selectByVisibleText("1");
+      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();
+      driver.findElement(By.name("bmonth")).click();
+      new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText("January");
+      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
+      driver.findElement(By.name("byear")).click();
+      driver.findElement(By.name("byear")).clear();
+      driver.findElement(By.name("byear")).sendKeys("2000");
+    }
+
+    protected void initUser() {
+      driver.findElement(By.linkText("add new")).click();
     }
 }
