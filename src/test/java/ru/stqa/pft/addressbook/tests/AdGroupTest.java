@@ -1,8 +1,9 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.tests;
 
 
 
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.tech.Konfig;
 
 import java.io.IOException;
 
@@ -14,11 +15,11 @@ public class AdGroupTest extends Baza {
   @Test
   public void adGroup() throws IOException {
     Konfig konf = new Konfig();
-    goToGroup();
-    initGroup();
-    fillingGroup(konf);
-    submitGroup();
-    returnToGroupPage();
+    app.getHelperOfNavigation().goToGroup();
+    app.getHelperOfGroup().initGroup();
+    app.getHelperOfGroup().fillingGroup(konf);
+    app.getHelperOfGroup().submitGroup();
+    app.getHelperOfGroup().returnToGroupPage();
   }
 
 }
