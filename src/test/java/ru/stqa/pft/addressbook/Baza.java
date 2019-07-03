@@ -86,16 +86,16 @@ public class Baza {
       driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
     }
 
-    protected void writeUserData() {
+    protected void writeUserData(Konfig konf) {
       driver.findElement(By.name("firstname")).click();
       driver.findElement(By.name("firstname")).clear();
-      driver.findElement(By.name("firstname")).sendKeys("First name");
+      driver.findElement(By.name("firstname")).sendKeys(konf.first_name);
       driver.findElement(By.name("middlename")).click();
       driver.findElement(By.name("middlename")).clear();
-      driver.findElement(By.name("middlename")).sendKeys("middle name");
+      driver.findElement(By.name("middlename")).sendKeys(konf.middle_name);
       driver.findElement(By.name("lastname")).click();
       driver.findElement(By.name("lastname")).clear();
-      driver.findElement(By.name("lastname")).sendKeys("last name");
+      driver.findElement(By.name("lastname")).sendKeys(konf.last_name);
       driver.findElement(By.name("bday")).click();
       new Select(driver.findElement(By.name("bday"))).selectByVisibleText("1");
       driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[3]")).click();

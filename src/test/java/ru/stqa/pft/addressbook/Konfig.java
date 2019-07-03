@@ -18,7 +18,10 @@ public class Konfig {
     public String groupName;
     public String groupHeader;
     public String groupFooter;
-
+    //для теста создания юзера
+    public String first_name;
+    public String middle_name;
+    public String last_name;
 
 
     public Konfig() throws IOException {
@@ -26,18 +29,33 @@ public class Konfig {
         File file = new File("./src/test/resources/config.properties"); //завод файла
         Properties properties = new Properties(); // Переменная для пропертей
         properties.load(new FileReader(file));
+        //для ОС
         String useLinux = properties.getProperty("useLinux");
+        //для логина
         String userL = properties.getProperty("userL");
         String userP = properties.getProperty("userP");
+        //для теста групп
         String groupName = properties.getProperty("groupName");
         String groupHeader = properties.getProperty("groupHeader");
         String groupFooter = properties.getProperty("groupFooter");
+        //для теста создания юзера
+        String first_name = properties.getProperty("first_name");
+        String middle_name = properties.getProperty("middle_name");
+        String last_name = properties.getProperty("last_name");
+
+        //для ОС
         this.useLinux = useLinux;
+        //для логина
         this.userL = userL;
         this.userP = userP;
+        //для теста групп
         this.groupName = groupName;
         this.groupHeader = groupHeader;
         this.groupFooter = groupFooter;
+        //для теста создания юзера
+        this.first_name = first_name;
+        this.middle_name = middle_name;
+        this.last_name = last_name;
 
 
 
