@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class GeneralHelper {
     protected ChromeDriver driver;
@@ -14,9 +15,21 @@ public class GeneralHelper {
         driver.findElement(locator).click();
     }
 
-    protected void type(By locator, String groupNameFromKonfig) {
+    protected void type(By locator, String NameFromKonfig) {
         click(locator);
         driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(groupNameFromKonfig);
+        driver.findElement(locator).sendKeys(NameFromKonfig);
+    }
+    //protected void spisok(By locator, String textOfSpisok) {
+
+       // new Select(driver.findElement(locator)).selectByVisibleText(textOfSpisok);
+
+    //}
+    protected void fullSpisok(By locator, String textOfSpisok, By xpathLoc) {
+        click(locator);
+        new Select(driver.findElement(locator)).selectByVisibleText(textOfSpisok);
+        //spisok(locator, pinOfSpisok); //на выбор влияет и следующая строчка
+        click(xpathLoc);
     }
 }
+

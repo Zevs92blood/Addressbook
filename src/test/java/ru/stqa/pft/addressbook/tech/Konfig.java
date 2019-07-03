@@ -22,6 +22,7 @@ public class Konfig {
     public String first_name;
     public String middle_name;
     public String last_name;
+    public String year;
 
 
     public Konfig() throws IOException {
@@ -42,6 +43,8 @@ public class Konfig {
         String first_name = properties.getProperty("first_name");
         String middle_name = properties.getProperty("middle_name");
         String last_name = properties.getProperty("last_name");
+        String year = properties.getProperty("year");
+
 
         //для ОС
         this.useLinux = useLinux;
@@ -56,6 +59,8 @@ public class Konfig {
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
+        this.year = year;
+
 
 
 
