@@ -31,5 +31,9 @@ public class GeneralHelper {
         //spisok(locator, pinOfSpisok); //на выбор влияет и следующая строчка
         click(xpathLoc);
     }
+
+    public void acceptButtonOfAlert() {
+        driver.switchTo().alert().accept();
+    }
 }
 
