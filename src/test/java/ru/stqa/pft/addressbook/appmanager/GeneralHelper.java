@@ -35,5 +35,10 @@ public class GeneralHelper {
     public void acceptButtonOfAlert() {
         driver.switchTo().alert().accept();
     }
+    public void pinFirstAvailable() {
+        click(By.name("selected[]"));
+
+    }
 }
+
 

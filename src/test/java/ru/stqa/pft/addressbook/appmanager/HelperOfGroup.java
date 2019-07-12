@@ -28,7 +28,16 @@ public class HelperOfGroup extends GeneralHelper{
     }
 
     public void deleteGroup() {
-        click(By.name("selected[]"));
+
         click(By.name("delete"));
+    }
+
+    public void editGroup() {
+
+        click(By.name("edit"));
+    }
+
+    public void updateGroup() {
+        click(By.name("update"));
     }
 }

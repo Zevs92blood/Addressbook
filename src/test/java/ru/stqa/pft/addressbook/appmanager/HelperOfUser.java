@@ -31,10 +31,7 @@ public class HelperOfUser extends GeneralHelper {
     }
 
 
-    public void pinUser() {
-        click(By.name("selected[]"));
 
-    }
 
     public void pushDelButton() {
         click(By.xpath("//input[@value='Delete']"));
