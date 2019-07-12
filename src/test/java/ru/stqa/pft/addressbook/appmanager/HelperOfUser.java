@@ -36,6 +36,15 @@ public class HelperOfUser extends GeneralHelper {
     public void pushDelButton() {
         click(By.xpath("//input[@value='Delete']"));
     }
+
+    public void pushEditButton() {
+        click(By.xpath("//img[@alt='Edit']"));
+    }
+    public void updateUser() {
+        click(By.name("update"));
+    }
 }
+
+
 
 
