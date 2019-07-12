@@ -9,8 +9,9 @@ import java.util.Properties;
 public class Konfig {
 
 
-    //для ОС
+    //для ОС и Браузера
     public String useLinux;
+    public String browser;
     //для логина
     public String userL;
     public String userP;
@@ -32,6 +33,7 @@ public class Konfig {
         properties.load(new FileReader(file));
         //для ОС
         String useLinux = properties.getProperty("useLinux");
+        String browser = properties.getProperty("browser");
         //для логина
         String userL = properties.getProperty("userL");
         String userP = properties.getProperty("userP");
@@ -48,6 +50,7 @@ public class Konfig {
 
         //для ОС
         this.useLinux = useLinux;
+        this.browser = browser;
         //для логина
         this.userL = userL;
         this.userP = userP;

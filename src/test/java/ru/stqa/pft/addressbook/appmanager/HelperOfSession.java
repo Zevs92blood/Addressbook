@@ -1,12 +1,13 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
 public class HelperOfSession extends GeneralHelper {
 
-    public HelperOfSession(ChromeDriver driver) {
+    public HelperOfSession(WebDriver driver) {
         super(driver);
     }
     public void login(Konfig konf) {

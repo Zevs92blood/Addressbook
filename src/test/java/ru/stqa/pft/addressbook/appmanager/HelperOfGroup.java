@@ -1,11 +1,12 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
 public class HelperOfGroup extends GeneralHelper{
-    public HelperOfGroup(ChromeDriver driver) {
+    public HelperOfGroup(WebDriver driver) {
         super(driver);
     }
 

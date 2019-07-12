@@ -1,7 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
 import java.util.concurrent.TimeUnit;
@@ -12,7 +14,7 @@ public class AppManager {
     private HelperOfUser helperOfUser;
     private HelperOfGroup helperOfGroup;
     private HelperOfSession helperOfSession;
-    ChromeDriver driver; // Для линуха ставим sudo apt-get install chromium-chromedriver
+    WebDriver driver; // Для линуха ставим sudo apt-get install chromium-chromedriver
 
     public static boolean isAlertPresent(ChromeDriver driver){
       try{
@@ -25,7 +27,8 @@ public class AppManager {
       }
 
     public void init(Konfig konf) {
-        driver = new ChromeDriver();
+        if (konf.browser.equals("chrome")) {driver = new ChromeDriver();}
+        else {driver = new FirefoxDriver();}
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://192.168.56.101/addressbook/index.php");
         helperOfGroup = new HelperOfGroup(driver);

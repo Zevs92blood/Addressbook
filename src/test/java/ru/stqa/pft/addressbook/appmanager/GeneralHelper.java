@@ -1,13 +1,14 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class GeneralHelper {
-    protected ChromeDriver driver;
+    protected WebDriver driver;
 
-    public GeneralHelper(ChromeDriver driver) {
+    public GeneralHelper(WebDriver driver) {
         this.driver = driver;
     }
 
