@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class GeneralHelper {
@@ -18,8 +17,13 @@ public class GeneralHelper {
 
     protected void type(By locator, String NameFromKonfig) {
         click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(NameFromKonfig);
+        if (NameFromKonfig != null) {
+            String existingText = driver.findElement(locator).getAttribute("value");
+            if (! NameFromKonfig.equals(existingText)) {
+                driver.findElement(locator).clear();
+                driver.findElement(locator).sendKeys(NameFromKonfig);
+            }
+        }
     }
     //protected void spisok(By locator, String textOfSpisok) {
 
