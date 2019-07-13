@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
 public class HelperOfGroup extends GeneralHelper{
@@ -40,5 +39,16 @@ public class HelperOfGroup extends GeneralHelper{
 
     public void updateGroup() {
         click(By.name("update"));
+    }
+
+    public void createG(Konfig konf) {
+        initGroup();
+        fillingGroup(konf);
+        submitGroup();
+        returnToGroupPage();
+    }
+
+    public boolean seartchG() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

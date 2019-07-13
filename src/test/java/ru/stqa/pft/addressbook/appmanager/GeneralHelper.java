@@ -54,6 +54,10 @@ public class GeneralHelper {
             return false;
         }
     }
+
+    public void backToHP() {
+        click(By.linkText("home page"));
+    }
 }
 
 

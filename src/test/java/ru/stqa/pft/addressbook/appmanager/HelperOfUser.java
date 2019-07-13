@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -30,7 +31,13 @@ public class HelperOfUser extends GeneralHelper {
         fullSpisok(By.name("bmonth"), "February", By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[36]"));
         type(By.name("byear"), konf.year);
         if (create) {
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(konf.groupNameNameForUser);
+            try {
+                new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(konf.groupNameForUser);
+            } catch (NullPointerException ex){
+                System.out.println("Не задана группа");
+            } catch (NoSuchElementException ex){
+                System.out.println("Нет доступной группы");
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));}
 
@@ -47,6 +54,18 @@ public class HelperOfUser extends GeneralHelper {
     }
     public void updateUser() {
         click(By.name("update"));
+    }
+
+    public void createU(Konfig konf) {
+        initUser();
+        writeUserData(konf, true);
+        createUser();
+        backToHP();
+
+    }
+
+    public boolean seartchU() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
 

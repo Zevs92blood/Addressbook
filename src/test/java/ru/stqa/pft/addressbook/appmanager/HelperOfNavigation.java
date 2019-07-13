@@ -27,4 +27,6 @@ public class HelperOfNavigation extends GeneralHelper {
         click(By.linkText("home"));
 
     }
+
+
 }

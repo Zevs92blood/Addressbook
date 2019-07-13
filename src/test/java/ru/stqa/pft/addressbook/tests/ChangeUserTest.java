@@ -8,6 +8,10 @@ public class ChangeUserTest extends Baza {
     @Test
     public void testChangeUser() throws Exception {
         Konfig konf = new Konfig();
+        if (! app.getHelperOfUser().seartchU()) {
+            app.getHelperOfUser().createU(konf);
+
+        }
         app.getHelperOfUser().pinFirstAvailable();
         app.getHelperOfUser().pushEditButton();
         app.getHelperOfUser().writeUserData(konf, false);

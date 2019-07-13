@@ -8,6 +8,10 @@ public class ChangeGroupTest extends Baza {
     public void testChangeGroup() throws Exception {
         Konfig konf = new Konfig();
         app.getHelperOfNavigation().goToGroup();
+        if (! app.getHelperOfGroup().seartchG()){
+
+            app.getHelperOfGroup().createG(konf);
+        }
         app.getHelperOfGroup().pinFirstAvailable();
         app.getHelperOfGroup().editGroup();
         app.getHelperOfGroup().fillingGroup(konf);

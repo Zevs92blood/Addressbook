@@ -10,8 +10,11 @@ public class AdUserTest extends Baza {
   public void testAdUser() throws Exception {
     Konfig konf = new Konfig();
     app.getHelperOfUser().initUser();
+
     app.getHelperOfUser().writeUserData(konf, true);
     app.getHelperOfUser().createUser();
+    app.getHelperOfUser().backToHP();
+
   }
 
 

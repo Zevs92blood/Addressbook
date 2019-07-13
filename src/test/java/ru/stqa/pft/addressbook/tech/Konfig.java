@@ -25,7 +25,7 @@ public class Konfig {
     public String middle_name;
     public String last_name;
     public String year;
-    public String groupNameNameForUser;
+    public String groupNameForUser;
 
 
     public Konfig() throws IOException {
@@ -49,7 +49,7 @@ public class Konfig {
         String middle_name = properties.getProperty("middle_name");
         String last_name = properties.getProperty("last_name");
         String year = properties.getProperty("year");
-        String groupNameNameForUser = properties.getProperty("groupNameNameForUser");
+        String groupNameForUser = properties.getProperty("groupNameForUser");
 
 
         //для ОС
@@ -68,7 +68,7 @@ public class Konfig {
         this.middle_name = middle_name;
         this.last_name = last_name;
         this.year = year;
-        this.groupNameNameForUser = groupNameNameForUser;
+        this.groupNameForUser = groupNameForUser;
 
 
 
