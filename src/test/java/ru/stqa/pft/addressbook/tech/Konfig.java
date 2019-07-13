@@ -12,6 +12,7 @@ public class Konfig {
     //для ОС и Браузера
     public String useLinux;
     public String browser;
+    public int browserSleeping;
     //для логина
     public String userL;
     public String userP;
@@ -24,6 +25,7 @@ public class Konfig {
     public String middle_name;
     public String last_name;
     public String year;
+    public String groupNameNameForUser;
 
 
     public Konfig() throws IOException {
@@ -34,6 +36,7 @@ public class Konfig {
         //для ОС
         String useLinux = properties.getProperty("useLinux");
         String browser = properties.getProperty("browser");
+        int browserSleeping = Integer.parseInt(properties.getProperty("browserSleeping"));
         //для логина
         String userL = properties.getProperty("userL");
         String userP = properties.getProperty("userP");
@@ -46,11 +49,13 @@ public class Konfig {
         String middle_name = properties.getProperty("middle_name");
         String last_name = properties.getProperty("last_name");
         String year = properties.getProperty("year");
+        String groupNameNameForUser = properties.getProperty("groupNameNameForUser");
 
 
         //для ОС
         this.useLinux = useLinux;
         this.browser = browser;
+        this.browserSleeping = browserSleeping;
         //для логина
         this.userL = userL;
         this.userP = userP;
@@ -63,6 +68,7 @@ public class Konfig {
         this.middle_name = middle_name;
         this.last_name = last_name;
         this.year = year;
+        this.groupNameNameForUser = groupNameNameForUser;
 
 
 

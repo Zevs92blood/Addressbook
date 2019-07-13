@@ -16,7 +16,7 @@ public class AppManager {
     private HelperOfSession helperOfSession;
     WebDriver driver; // Для линуха ставим sudo apt-get install chromium-chromedriver
 
-    public static boolean isAlertPresent(ChromeDriver driver){
+    public static boolean isAlertPresent(WebDriver driver){
       try{
         driver.switchTo().alert();
         return true;
@@ -29,7 +29,7 @@ public class AppManager {
     public void init(Konfig konf) {
         if (konf.browser.equals("chrome")) {driver = new ChromeDriver();}
         else {driver = new FirefoxDriver();}
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(konf.browserSleeping, TimeUnit.SECONDS);
         driver.get("http://192.168.56.101/addressbook/index.php");
         helperOfGroup = new HelperOfGroup(driver);
         helperOfUser = new HelperOfUser(driver);

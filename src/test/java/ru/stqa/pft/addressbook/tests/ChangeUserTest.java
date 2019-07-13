@@ -10,7 +10,7 @@ public class ChangeUserTest extends Baza {
         Konfig konf = new Konfig();
         app.getHelperOfUser().pinFirstAvailable();
         app.getHelperOfUser().pushEditButton();
-        app.getHelperOfUser().writeUserData(konf);
+        app.getHelperOfUser().writeUserData(konf, false);
         app.getHelperOfUser().updateUser();
     }
 }
