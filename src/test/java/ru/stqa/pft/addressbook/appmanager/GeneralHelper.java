@@ -35,7 +35,7 @@ public class GeneralHelper {
 
 
     public void tikaemSpisok(By locator, String textOfSpisok, boolean create) {
-        System.out.println("Тыкаемся в поле: " + locator);
+        System.out.println("Тыкаемся в поле " + locator);
         if (create) {
             try {
                 System.out.println("Доступное значение?");
