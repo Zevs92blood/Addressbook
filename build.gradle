@@ -8,10 +8,10 @@ task getHomeDir {
 }
 
 repositories {
-    //mavenCentral()
-    maven  {
-        url "http://repo1.maven.org/maven2"
-    }
+    mavenCentral()
+    //maven  {
+        //url "http://repo1.maven.org/maven2"
+    //}
 }
 
 
@@ -25,5 +25,7 @@ dependencies {
 test {
     // enable TestNG support (default is JUnit)
     useTestNG() //Тыкаем носом градл
+    scanForTestClasses = false
+    //useJUnitPlatform()
     
 }
