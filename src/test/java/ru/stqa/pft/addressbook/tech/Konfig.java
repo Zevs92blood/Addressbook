@@ -13,6 +13,7 @@ public class Konfig {
     public String useLinux;
     public String browser;
     public int browserSleeping;
+    public String podopitnie;
     //для логина
     public String userL;
     public String userP;
@@ -37,6 +38,7 @@ public class Konfig {
         String useLinux = properties.getProperty("useLinux");
         String browser = properties.getProperty("browser");
         int browserSleeping = Integer.parseInt(properties.getProperty("browserSleeping"));
+        String podopitnie = properties.getProperty("podopitnie");
         //для логина
         String userL = properties.getProperty("userL");
         String userP = properties.getProperty("userP");
@@ -56,6 +58,7 @@ public class Konfig {
         this.useLinux = useLinux;
         this.browser = browser;
         this.browserSleeping = browserSleeping;
+        this.podopitnie = podopitnie;
         //для логина
         this.userL = userL;
         this.userP = userP;
