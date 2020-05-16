@@ -11,7 +11,7 @@ public class AdUserTest extends Baza {
     Konfig konf = new Konfig();
     app.getHelperOfUser().initUser();
 
-    app.getHelperOfUser().writeUserData(konf, true);
+    app.getHelperOfUser().writeUserData(konf);
     app.getHelperOfUser().createUser();
     app.getHelperOfUser().backToHP();
 
