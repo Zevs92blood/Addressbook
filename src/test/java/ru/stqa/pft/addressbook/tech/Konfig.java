@@ -25,13 +25,17 @@ public class Konfig {
     public String first_name;
     public String middle_name;
     public String last_name;
+    public String bday;
+    public String bmonth;
     public String year;
     public String groupNameForUser;
 
 
     public Konfig() throws IOException {
          // this(ссылка на этот объект).атрибут = переменная, объявленная как аргумент функции
+        System.out.println("Читаем проперти");
         File file = new File("./src/test/resources/config.properties"); //завод файла
+        System.out.println("Разбираем файл проперти");
         Properties properties = new Properties(); // Переменная для пропертей
         properties.load(new FileReader(file));
         //для ОС
@@ -50,6 +54,8 @@ public class Konfig {
         String first_name = properties.getProperty("first_name");
         String middle_name = properties.getProperty("middle_name");
         String last_name = properties.getProperty("last_name");
+        String bday = properties.getProperty("bday");
+        String bmonth = properties.getProperty("bmonth");
         String year = properties.getProperty("year");
         String groupNameForUser = properties.getProperty("groupNameForUser");
 
@@ -70,6 +76,8 @@ public class Konfig {
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
+        this.bday = bday;
+        this.bmonth = bmonth;
         this.year = year;
         this.groupNameForUser = groupNameForUser;
 

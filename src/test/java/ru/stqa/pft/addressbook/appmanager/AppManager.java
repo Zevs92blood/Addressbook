@@ -27,8 +27,14 @@ public class AppManager {
       }
 
     public void init(Konfig konf) {
-        if (konf.browser.equals("chrome")) {driver = new ChromeDriver();}
-        else {driver = new FirefoxDriver();}
+        if (konf.browser.equals("chrome")) {
+            driver = new ChromeDriver();
+            System.out.println("Хром поехал");
+        }
+        else {
+            driver = new FirefoxDriver();
+            System.out.println("Огненая панда");
+        }
         driver.manage().timeouts().implicitlyWait(konf.browserSleeping, TimeUnit.SECONDS);
         driver.get(konf.podopitnie);
         helperOfGroup = new HelperOfGroup(driver);

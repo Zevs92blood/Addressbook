@@ -33,9 +33,13 @@ public class GeneralHelper {
     //}
     protected void fullSpisok(By locator, String textOfSpisok, By xpathLoc) {
         click(locator);
-        new Select(driver.findElement(locator)).selectByVisibleText(textOfSpisok);
+        tikaemSpisok(locator, textOfSpisok);
         //spisok(locator, pinOfSpisok); //на выбор влияет и следующая строчка
         click(xpathLoc);
+    }
+
+    public void tikaemSpisok(By locator, String textOfSpisok) {
+        new Select(driver.findElement(locator)).selectByVisibleText(textOfSpisok);
     }
 
     public void acceptButtonOfAlert() {
