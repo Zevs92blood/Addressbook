@@ -30,7 +30,7 @@ public class AppManager {
         if (konf.browser.equals("chrome")) {driver = new ChromeDriver();}
         else {driver = new FirefoxDriver();}
         driver.manage().timeouts().implicitlyWait(konf.browserSleeping, TimeUnit.SECONDS);
-        driver.get("http://192.168.0.138/addressbook/index.php");
+        driver.get(konf.podopitnie);
         helperOfGroup = new HelperOfGroup(driver);
         helperOfUser = new HelperOfUser(driver);
         helperOfNavigation = new HelperOfNavigation(driver);
