@@ -23,7 +23,7 @@ public class HelperOfUser extends GeneralHelper {
 
     }
 
-    public void writeUserData(Konfig konf) {
+    public void writeUserData(Konfig konf, boolean nado) {
         System.out.println("Забиваем данные юзера");
         type(By.name("firstname"), konf.first_name);
         type(By.name("middlename"), konf.middle_name);
@@ -33,7 +33,7 @@ public class HelperOfUser extends GeneralHelper {
         //fullSpisok(By.name("bday"), "3", By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[5]"));
         //fullSpisok(By.name("bmonth"), "February", By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[36]"));
         type(By.name("byear"), konf.year);
-        tikaemSpisok(By.name("new_group"), konf.groupNameForUser, true);
+        tikaemSpisok(By.name("new_group"), konf.groupNameForUser, nado);
 
 
 
@@ -53,7 +53,7 @@ public class HelperOfUser extends GeneralHelper {
 
     public void createU(Konfig konf) {
         initUser();
-        writeUserData(konf);
+        writeUserData(konf, true);
         createUser();
         backToHP();
 
