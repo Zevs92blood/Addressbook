@@ -41,7 +41,6 @@ public class HelperOfUser extends GeneralHelper {
         tikaemSpisok(By.name("new_group"), konf.groupNameForUser, nado);
 
 
-
     }
 
 
@@ -52,6 +51,7 @@ public class HelperOfUser extends GeneralHelper {
     public void pushEditButton() {
         click(By.xpath("//img[@alt='Edit']"));
     }
+
     public void updateUser() {
         click(By.name("update"));
     }
@@ -72,12 +72,20 @@ public class HelperOfUser extends GeneralHelper {
         List<UData> users = new ArrayList<UData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
-            String fName = element.findElement(By.tagName("input")).getAttribute("title");
             
-            String lName = element.findElement(By.tagName("input")).getAttribute("title");
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            UData user = new UData(fName, lName, id);
-            users.add(user);
+            try {
+
+                String fName = element.findElement(By.tagName("input")).getAttribute("title");
+                String[] words = fName.split(" "); // разбираем полученное по пробелу
+                fName = words[1].substring(1); //выдираю 2 слово. удаляю скобку "("
+                String lName = words[2].substring(0, words[2].length() - 1); //выдираю 3 слово. удаляю скобку ")"
+                int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+                UData user = new UData(fName, lName, id);
+                users.add(user);
+            } catch (NoSuchElementException ex){
+                System.out.println("найден лишний элемент");
+            }
+
         }
         return users;
     }
