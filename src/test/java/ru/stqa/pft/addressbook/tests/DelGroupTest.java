@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
+import java.util.List;
+
 public class DelGroupTest extends Baza {
 
     @Test
