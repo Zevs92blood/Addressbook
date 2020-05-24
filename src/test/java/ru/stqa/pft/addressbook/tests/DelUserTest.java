@@ -20,6 +20,7 @@ public class DelUserTest extends Baza {
         app.getHelperOfUser().pinSeredinaAvailable(ranee.size() / 2);
         app.getHelperOfUser().pushDelButton();
         app.getHelperOfUser().acceptButtonOfAlert();
+        app.getHelperOfNavigation().goToHome();
         List<UData> potom = app.getHelperOfUser().getUserList();
         Assert.assertEquals(potom.size(), ranee.size() - 1);
 

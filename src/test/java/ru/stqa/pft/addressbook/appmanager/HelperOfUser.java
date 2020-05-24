@@ -72,7 +72,7 @@ public class HelperOfUser extends GeneralHelper {
         List<UData> users = new ArrayList<UData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
-            
+
             try {
 
                 String fName = element.findElement(By.tagName("input")).getAttribute("title");
