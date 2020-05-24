@@ -66,8 +66,9 @@ public class GeneralHelper {
         driver.switchTo().alert().accept();
     }
 
-    public void pinFirstAvailable() {
-        click(By.name("selected[]"));
+    public void pinSeredinaAvailable(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
+
 
     }
 

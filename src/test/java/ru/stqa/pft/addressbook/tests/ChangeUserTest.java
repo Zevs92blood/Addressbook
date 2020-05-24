@@ -12,7 +12,7 @@ public class ChangeUserTest extends Baza {
             app.getHelperOfUser().createU(konf);
 
         }
-        app.getHelperOfUser().pinFirstAvailable();
+     //   app.getHelperOfUser().pinSeredinaAvailable();
         app.getHelperOfUser().pushEditButton();
         app.getHelperOfUser().writeUserData(konf, false);
         app.getHelperOfUser().updateUser();

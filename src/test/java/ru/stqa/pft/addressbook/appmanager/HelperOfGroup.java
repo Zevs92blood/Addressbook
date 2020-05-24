@@ -2,7 +2,12 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import ru.stqa.pft.addressbook.tech.GData;
 import ru.stqa.pft.addressbook.tech.Konfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelperOfGroup extends GeneralHelper{
     public HelperOfGroup(WebDriver driver) {
@@ -50,5 +55,17 @@ public class HelperOfGroup extends GeneralHelper{
 
     public boolean seartchG() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public List<GData> getGroupList() {
+        List<GData> groups = new ArrayList<GData>();
+        List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            GData group = new GData(name, id);
+            groups.add(group);
+        }
+        return groups;
     }
 }
