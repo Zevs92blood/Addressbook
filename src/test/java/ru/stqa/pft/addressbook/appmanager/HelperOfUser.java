@@ -48,8 +48,11 @@ public class HelperOfUser extends GeneralHelper {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void pushEditButton() {
-        click(By.xpath("//img[@alt='Edit']"));
+    public void pushEditButton(int index) {
+        if (index != 0) {
+            index++;
+        driver.findElement(By.xpath("(//img[@alt='Edit'])[" + index + "]")).click();
+        } else click(By.xpath("//img[@alt='Edit']"));
     }
 
     public void updateUser() {
@@ -72,9 +75,7 @@ public class HelperOfUser extends GeneralHelper {
         List<UData> users = new ArrayList<UData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
-
             try {
-
                 String fName = element.findElement(By.tagName("input")).getAttribute("title");
                 String[] words = fName.split(" "); // разбираем полученное по пробелу
                 fName = words[1].substring(1); //выдираю 2 слово. удаляю скобку "("
