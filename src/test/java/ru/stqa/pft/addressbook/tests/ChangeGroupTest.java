@@ -12,7 +12,7 @@ public class ChangeGroupTest extends Baza {
     public void testChangeGroup() throws Exception {
         Konfig konf = new Konfig();
         app.getHelperOfNavigation().goToGroup();
-        if (! app.getHelperOfGroup().seartchG()){
+        if (app.getHelperOfGroup().getGroupList().size() == 0){
 
             app.getHelperOfGroup().createG(konf);
         }
@@ -22,7 +22,6 @@ public class ChangeGroupTest extends Baza {
         app.getHelperOfGroup().pinSeredinaAvailable(index);
         app.getHelperOfGroup().editGroup();
         app.getHelperOfGroup().fillingGroup(konf);
-
         app.getHelperOfGroup().updateGroup();
         app.getHelperOfGroup().returnToGroupPage();
         List<GData> potom = app.getHelperOfGroup().getGroupList();

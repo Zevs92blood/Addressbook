@@ -12,7 +12,7 @@ public class DelGroupTest extends Baza {
     @Test
     public void testDelGroup() throws Exception {
         app.getHelperOfNavigation().goToGroup();
-        if (! app.getHelperOfGroup().seartchG()){
+        if (app.getHelperOfGroup().getGroupList().size() == 0){
             Konfig konf = new Konfig();
             app.getHelperOfGroup().createG(konf);
         }

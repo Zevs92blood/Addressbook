@@ -20,6 +20,7 @@ public class HelperOfGroup extends GeneralHelper{
 
     public void submitGroup() {
         click(By.name("submit"));
+        gCache = null;
     }
 
     public void fillingGroup(Konfig konf) {
@@ -35,6 +36,7 @@ public class HelperOfGroup extends GeneralHelper{
     public void deleteGroup() {
 
         click(By.name("delete"));
+        gCache = null;
     }
 
     public void editGroup() {
@@ -44,6 +46,7 @@ public class HelperOfGroup extends GeneralHelper{
 
     public void updateGroup() {
         click(By.name("update"));
+        gCache = null;
     }
 
     public void createG(Konfig konf) {
