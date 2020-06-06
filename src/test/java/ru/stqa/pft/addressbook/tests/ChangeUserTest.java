@@ -13,7 +13,7 @@ public class ChangeUserTest extends Baza {
     @Test
     public void testChangeUser() throws Exception {
         Konfig konf = new Konfig();
-        if (! app.getHelperOfUser().seartchU()) {
+        if (app.getHelperOfUser().getUserList().size() == 0) {
             app.getHelperOfUser().createU(konf);
 
         }

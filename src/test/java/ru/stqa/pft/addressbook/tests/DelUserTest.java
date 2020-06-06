@@ -11,7 +11,7 @@ import java.util.List;
 public class DelUserTest extends Baza {
     @Test
     public void testDelUser() throws Exception {
-        if (!app.getHelperOfUser().seartchU()) {
+        if (app.getHelperOfUser().getUserList().size() == 0) {
             Konfig konf = new Konfig();
             app.getHelperOfUser().createU(konf);
 

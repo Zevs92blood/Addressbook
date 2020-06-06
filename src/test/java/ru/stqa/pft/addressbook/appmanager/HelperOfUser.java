@@ -20,7 +20,7 @@ public class HelperOfUser extends GeneralHelper {
 
     public void createUser() {
         click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
-
+        uCache = null;
     }
 
     public void initUser() {
@@ -46,6 +46,7 @@ public class HelperOfUser extends GeneralHelper {
 
     public void pushDelButton() {
         click(By.xpath("//input[@value='Delete']"));
+        uCache = null;
     }
 
     public void pushEditButton(int index) {
@@ -57,6 +58,7 @@ public class HelperOfUser extends GeneralHelper {
 
     public void updateUser() {
         click(By.name("update"));
+        uCache = null;
     }
 
     public void createU(Konfig konf) {
@@ -71,7 +73,12 @@ public class HelperOfUser extends GeneralHelper {
         return isElementPresent(By.name("selected[]"));
     }
 
+    private List<UData> uCache = null;
+
     public List<UData> getUserList() {
+        if (uCache != null){
+            return uCache;
+        }
         List<UData> users = new ArrayList<UData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
         for (WebElement element : elements) {
@@ -88,6 +95,7 @@ public class HelperOfUser extends GeneralHelper {
             }
 
         }
+        uCache = users;
         return users;
     }
 }
