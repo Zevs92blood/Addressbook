@@ -57,7 +57,13 @@ public class HelperOfGroup extends GeneralHelper{
         return isElementPresent(By.name("selected[]"));
     }
 
+private List<GData> gCache = null;
+
+
     public List<GData> getGroupList() {
+        if (gCache != null) {
+            return gCache;
+        }
         List<GData> groups = new ArrayList<GData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
@@ -66,6 +72,7 @@ public class HelperOfGroup extends GeneralHelper{
             GData group = new GData(name, id);
             groups.add(group);
         }
+        gCache = groups;
         return groups;
     }
 }

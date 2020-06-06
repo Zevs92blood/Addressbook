@@ -2,7 +2,9 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import ru.stqa.pft.addressbook.tech.GData;
 import ru.stqa.pft.addressbook.tech.UData;
 import ru.stqa.pft.addressbook.tech.Konfig;
@@ -13,9 +15,9 @@ import java.util.List;
 
 public class Baza {
 
-    protected final AppManager app = new AppManager();
+    protected static final AppManager app = new AppManager();
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() throws Exception {
         Konfig konf = new Konfig();
         // equals - сравнение для строк.
@@ -33,7 +35,7 @@ public class Baza {
         app.init(konf);
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
         app.stop();
     }

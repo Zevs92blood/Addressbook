@@ -17,15 +17,17 @@ public class ChangeGroupTest extends Baza {
             app.getHelperOfGroup().createG(konf);
         }
         List<GData> ranee = app.getHelperOfGroup().getGroupList();
-        app.getHelperOfGroup().pinSeredinaAvailable(ranee.size() / 2);
+        int index = ranee.size() / 2;
+        GData group = new GData(konf.groupName, ranee.get(index).getId());
+        app.getHelperOfGroup().pinSeredinaAvailable(index);
         app.getHelperOfGroup().editGroup();
         app.getHelperOfGroup().fillingGroup(konf);
-        GData group = new GData(konf.groupName, ranee.get(ranee.size() / 2).getId());
+
         app.getHelperOfGroup().updateGroup();
         app.getHelperOfGroup().returnToGroupPage();
         List<GData> potom = app.getHelperOfGroup().getGroupList();
         Assert.assertEquals(potom.size(), ranee.size());
-        ranee.remove(ranee.size() / 2);
+        ranee.remove(index);
         ranee.add(group);
 
         proverkaNaCelostnostVsegoOstalnogoG(ranee, potom);
