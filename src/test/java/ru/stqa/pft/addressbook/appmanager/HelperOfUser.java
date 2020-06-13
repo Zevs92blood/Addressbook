@@ -85,15 +85,15 @@ public class HelperOfUser extends GeneralHelper {
 
     public String getDetailsNum() {
         String vDN = "";
-        String fukingUserNum[] = driver.findElement(By.id("content")).getText().split("\n");
-        if (fukingUserNum.length == 3) {
+        String fuckingUserNum[] = driver.findElement(By.id("content")).getText().split("\n");
+        if (fuckingUserNum.length == 3) {
             return vDN;
         }
-        for (int i = 2; !fukingUserNum[i].equals(""); i++) {
-            if (!vDN.equals("") && !fukingUserNum[i].equals("")) {
+        for (int i = 2; !fuckingUserNum[i].equals(""); i++) {
+            if (!vDN.equals("") && !fuckingUserNum[i].equals("")) {
                 vDN = vDN + "\n";
             }
-            vDN = vDN + fukingUserNum[i].substring(3).replaceAll("\\s", "").replaceAll("[-()]", "");
+            vDN = vDN + fuckingUserNum[i].substring(3).replaceAll("\\s", "").replaceAll("[-()]", "");
         }
         return vDN;
     }
