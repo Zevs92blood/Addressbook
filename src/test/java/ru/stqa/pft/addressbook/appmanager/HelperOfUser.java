@@ -95,8 +95,6 @@ public class HelperOfUser extends GeneralHelper {
             }
             vDN = vDN + fukingUserNum[i].substring(3).replaceAll("\\s", "").replaceAll("[-()]", "");
         }
-
-
         return vDN;
     }
 
