@@ -56,10 +56,11 @@ public class HelperOfUser extends GeneralHelper {
             driver.findElement(By.xpath("(//img[@alt='Details'])[" + index + "]")).click();
         } else click(By.xpath("//img[@alt='Details']"));
     }
+
     public void pushEditButton(int index) {
         if (index != 0) {
             index++;
-        driver.findElement(By.xpath("(//img[@alt='Edit'])[" + index + "]")).click();
+            driver.findElement(By.xpath("(//img[@alt='Edit'])[" + index + "]")).click();
         } else click(By.xpath("//img[@alt='Edit']"));
     }
 
@@ -82,24 +83,25 @@ public class HelperOfUser extends GeneralHelper {
 
     private List<UData> uCache = null;
 
-    public List getDetails() {
-        List tUN = new ArrayList<>();
-        List<WebElement> elements = driver.findElements(By.id("content"));
-       for (WebElement element : elements) {
-        List<WebElement> uFullData = driver.findElements(By.cssSelector("#text"));
-       String h = uFullData.get(1).toString();
-       String m = uFullData.get(2).toString();
-       String w = uFullData.get(3).toString();
-       tUN.add(h);
-           tUN.add(m);
-           tUN.add(w);
+    public String getDetailsNum() {
+        String vDN = "";
+        String fukingUserNum[] = driver.findElement(By.id("content")).getText().split("\n");
+        if (fukingUserNum.length == 3) {
+            return vDN;
+        }
+        for (int i = 2; !fukingUserNum[i].equals(""); i++) {
+            if (!vDN.equals("") && !fukingUserNum[i].equals("")) {
+                vDN = vDN + "\n";
+            }
+            vDN = vDN + fukingUserNum[i].substring(3).replaceAll("\\s", "").replaceAll("[-()]", "");
+        }
 
-       }
-       return tUN;
+
+        return vDN;
     }
 
     public List<UData> getUserList() {
-        if (uCache != null){
+        if (uCache != null) {
             return uCache;
         }
         List<UData> users = new ArrayList<UData>();
@@ -116,7 +118,7 @@ public class HelperOfUser extends GeneralHelper {
                 int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
                 UData user = new UData(fName, lName, tNum, id);
                 users.add(user);
-            } catch (NoSuchElementException ex){
+            } catch (NoSuchElementException ex) {
                 System.out.println("найден лишний элемент");
             }
 
