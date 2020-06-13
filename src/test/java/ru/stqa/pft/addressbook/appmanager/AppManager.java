@@ -62,4 +62,8 @@ public class AppManager {
     public HelperOfNavigation getHelperOfNavigation() {
         return helperOfNavigation;
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 }

@@ -5,7 +5,14 @@ public class UData {
 
     private final String fName;
     private final String lName;
+    private String tNum;
     private int id;
+    public UData (String fName, String lName, String tNum, int id){
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.tNum = tNum;
+    }
     public UData (String fName, String lName, int id){
         this.id = id;
         this.fName = fName;
@@ -22,6 +29,10 @@ public class UData {
 
     public String getlName() {
         return lName;
+    }
+
+    public String getTNum() {
+        return tNum;
     }
 
     public int getId() {

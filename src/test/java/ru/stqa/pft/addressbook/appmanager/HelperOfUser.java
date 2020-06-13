@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.tech.UData;
 import ru.stqa.pft.addressbook.tech.Konfig;
 
@@ -33,6 +31,9 @@ public class HelperOfUser extends GeneralHelper {
         type(By.name("firstname"), konf.first_name);
         type(By.name("middlename"), konf.middle_name);
         type(By.name("lastname"), konf.last_name);
+        type(By.name("home"), konf.tNumH);
+        type(By.name("mobile"), konf.tNumM);
+        type(By.name("work"), konf.tNumW);
         tikaemSpisok(By.name("bday"), konf.bday, true);
         tikaemSpisok(By.name("bmonth"), konf.bmonth, true);
         //fullSpisok(By.name("bday"), "3", By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[5]"));
@@ -49,6 +50,12 @@ public class HelperOfUser extends GeneralHelper {
         uCache = null;
     }
 
+    public void pushDetailsButton(int index) {
+        if (index != 0) {
+            index++;
+            driver.findElement(By.xpath("(//img[@alt='Details'])[" + index + "]")).click();
+        } else click(By.xpath("//img[@alt='Details']"));
+    }
     public void pushEditButton(int index) {
         if (index != 0) {
             index++;
@@ -75,20 +82,39 @@ public class HelperOfUser extends GeneralHelper {
 
     private List<UData> uCache = null;
 
+    public List getDetails() {
+        List tUN = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(By.id("content"));
+       for (WebElement element : elements) {
+        List<WebElement> uFullData = driver.findElements(By.cssSelector("#text"));
+       String h = uFullData.get(1).toString();
+       String m = uFullData.get(2).toString();
+       String w = uFullData.get(3).toString();
+       tUN.add(h);
+           tUN.add(m);
+           tUN.add(w);
+
+       }
+       return tUN;
+    }
+
     public List<UData> getUserList() {
         if (uCache != null){
             return uCache;
         }
         List<UData> users = new ArrayList<UData>();
-        List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
+        List<WebElement> elements = driver.findElements(By.name("entry"));
         for (WebElement element : elements) {
+            List<WebElement> yacheika = element.findElements(By.tagName("td"));
             try {
-                String fName = element.findElement(By.tagName("input")).getAttribute("title");
-                String[] words = fName.split(" "); // разбираем полученное по пробелу
-                fName = words[1].substring(1); //выдираю 2 слово. удаляю скобку "("
-                String lName = words[2].substring(0, words[2].length() - 1); //выдираю 3 слово. удаляю скобку ")"
+                String fName = yacheika.get(2).getText();
+                String lName = yacheika.get(1).getText();
+                String tNum = yacheika.get(5).getText();
+                //String[] words = fName.split(" "); // разбираем полученное по пробелу
+                //fName = words[1].substring(1); //выдираю 2 слово. удаляю скобку "("
+                //String lName = words[2].substring(0, words[2].length() - 1); //выдираю 3 слово. удаляю скобку ")"
                 int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-                UData user = new UData(fName, lName, id);
+                UData user = new UData(fName, lName, tNum, id);
                 users.add(user);
             } catch (NoSuchElementException ex){
                 System.out.println("найден лишний элемент");
