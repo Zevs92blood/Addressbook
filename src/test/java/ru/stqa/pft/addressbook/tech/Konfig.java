@@ -32,6 +32,10 @@ public class Konfig {
     public String bmonth;
     public String year;
     public String groupNameForUser;
+    //Повторение
+    public String groupCount;
+    public String groupFile;
+    public String userCount;
 
 
     public Konfig() throws IOException {
@@ -64,6 +68,10 @@ public class Konfig {
         String bmonth = properties.getProperty("bmonth");
         String year = properties.getProperty("year");
         String groupNameForUser = properties.getProperty("groupNameForUser");
+        //Повторение
+        String groupFile = properties.getProperty("groupFile");
+        String groupCount = properties.getProperty("groupCount");
+        String userCount = properties.getProperty("userCount");
 
 
         //для ОС
@@ -89,6 +97,11 @@ public class Konfig {
         this.bmonth = bmonth;
         this.year = year;
         this.groupNameForUser = groupNameForUser;
+        //Повторение
+        this.groupCount = groupCount;
+        this.groupFile = groupFile;
+        this.userCount = userCount;
+
 
 
 

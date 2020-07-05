@@ -29,6 +29,12 @@ public class HelperOfGroup extends GeneralHelper{
         type(By.name("group_footer"), konf.groupFooter);
     }
 
+    public void fillingGroup(GData groups) {
+        type(By.name("group_name"), groups.getName());
+        type(By.name("group_header"), groups.getHeader());
+        type(By.name("group_footer"), groups.getFooter());
+    }
+
     public void initGroup() {
         click(By.name("new"));
     }

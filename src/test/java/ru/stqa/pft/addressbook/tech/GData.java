@@ -1,17 +1,34 @@
 package ru.stqa.pft.addressbook.tech;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Objects;
 
 public class GData {
-    private final String name;
+    @Expose
+    private  String name;
+    @Expose
+    private String header;
+    @Expose
+    private String footer;
     private int id;
     public GData (String name){
         this.id = Integer.MAX_VALUE;
+        this.header = "header";
+        this.footer = "footer";
         this.name = name;
     }
     public GData (String name, int id){
+        this.header = "header";
+        this.footer = "footer";
         this.id = id;
         this.name = name;
+    }
+
+    public GData (String name, String header, String footer){
+        this.name = name;
+        this.header = header;
+        this.footer = footer;
     }
 
     public void setId(int id) {
@@ -47,6 +64,12 @@ public class GData {
 
     public String getName() {
         return name;
+    }
+    public String getHeader() {
+        return header;
+    }
+    public String getFooter() {
+        return footer;
     }
 
 }
